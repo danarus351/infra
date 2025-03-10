@@ -1,7 +1,7 @@
 locals {
   env       = "QUALITY-ASSURANCE"
   short_env = "QA"
-  project   = "project_demo"
+  project   = "ecs_assginment1"
   region    = "us-east-1"
 
 }
