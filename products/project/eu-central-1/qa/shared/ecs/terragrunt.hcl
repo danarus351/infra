@@ -16,10 +16,13 @@ include "root" {
 
 dependency "vpc" {
   config_path = "../vpc/"
+
+
 }
 
 dependency "iam_role" {
   config_path = "../../fe/ecs-iam-role/"
+
 }
 
 

@@ -1,0 +1,71 @@
+# inputs = {
+
+#   cluster_name    = "${local.env_vars.project}-${local.env}-eks"
+#   cluster_version = local.env_vars.cluster_version
+#   create_aws_auth_configmap = false
+#   manage_aws_auth_configmap = true 
+
+
+#   bootstrap_self_managed_addons = false
+#   cluster_addons = {
+#     coredns                = {}
+#     eks-pod-identity-agent = {}
+#     kube-proxy             = {}
+#     vpc-cni                = {}
+#   }
+
+#   cluster_endpoint_public_access           = true
+#   enable_cluster_creator_admin_permissions = true
+#   authentication_mode = "API_AND_CONFIG_MAP"
+#   cluster_iam_role_name                    = "eks-cluster-role"
+#   cluster_iam_role_additional_policies = {
+#     AmazonEKSClusterPolicy       = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+#     AmazonEKSServicePolicy       = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
+#     AmazonEKSBlockStoragePolicy  = "arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy"
+#     AmazonEKSLoadBalancingPolicy = "arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy"
+#     AmazonEKSComputePolicy       = "arn:aws:iam::aws:policy/AmazonEKSComputePolicy"
+#     AmazonEKSNetworkingPolicy    = "arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy"
+#   }
+
+
+#   manage_aws_auth_configmap = true 
+
+#   aws_auth_users = [
+#     {
+#       userarn  = local.current_role_arn
+#       username = ""
+#       groups   = ["system:masters"]
+#     }
+#   ]
+
+#   public_subnet_tags = {
+#     "kubernetes.io/role/elb" = "1"
+#   }
+#   vpc_id                   = dependency.vpc.outputs.vpc_id
+#   subnet_ids               = dependency.vpc.outputs.public_subnets_id
+#   control_plane_subnet_ids = dependency.vpc.outputs.private_subnets_id
+
+
+#   eks_managed_node_groups = {
+#     main = {
+#       create_iam_role = true
+#       iam_role_name   = "eks-node-role"
+#       enable_auto_repair = true
+#       iam_role_additional_policies = {
+#         AmazonEKSWorkerNodePolicy          = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+#         AmazonEC2ContainerRegistryReadOnly = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+#         AmazonSSMManagedInstanceCore       = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+#         AmazonEKS_CNI_Policy               = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+#       }
+
+#       ami_type       = local.env_vars.ami
+#       instance_types = ["t2.small"]
+
+#       min_size     = 2
+#       max_size     = 10
+#       desired_size = 2
+#     }
+#   }
+
+#   tags = local.marged_tags
+# }
