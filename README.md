@@ -7,3 +7,6 @@
 
     cd ./products/ecs_project_assignment1/us-east-1/qa/shared/ecs/
     terragrunt run-all apply --terragrunt-non-interactive
+# to run the eks:
+     cd ./products/project/eu-central-1/prod/
+     terragrunt run-all apply --terragrunt-non-interactive
